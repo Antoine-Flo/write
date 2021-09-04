@@ -1,0 +1,23 @@
+<div class="save">
+    <button class="save__btn" (click)="panel = !panel">
+        <img src="/assets/dowload.png" class="save__btn-img">
+
+    </button>
+
+    <div class="save__options" *ngIf="panel === true">
+
+        <button class="save__option save__btn" (click)="onSave()">
+            <img src="/assets/txt.png" class="save__btn-img">
+        </button>
+
+        <button class="save__option save__btn" (click)="onSave()">
+            <img src="/assets/doc.png" class="save__btn-img">
+        </button>
+
+        <button class="save__option save__btn" (click)="onSave()">
+            <img src="/assets/pdf-file.png" class="save__btn-img">
+        </button>
+    </div>
+
+
+</div>
