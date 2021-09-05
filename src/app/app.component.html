@@ -7,7 +7,7 @@
     <button (click)="onCopy(write.innerText)" class="write__copy">
       <img class="write__copy-img" src="/assets/copy.png" alt="copy button">
     </button>
-    <div #write (click)="selectionChange()" class="write__text" contenteditable="true" autofocus="autofocus">
+    <div #write id="write" (click)="selectionChange()" class="write__text" contenteditable="true" autofocus="autofocus">
 
     </div>
   </div>

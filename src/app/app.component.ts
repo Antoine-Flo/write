@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AppComponent {
   @Output() onSelection = new EventEmitter<any>();
+  @ViewChild('write') write: any;
   text: any;
   position: any;
   test: any;
@@ -17,6 +18,7 @@ export class AppComponent {
     const selection = this.window.getSelection();
     const selectionRange = this.window.getSelection()?.getRangeAt(0);
     const textSelected = selection?.toString();
+
     if (textSelected) {
       this.position = selectionRange;
     }
@@ -24,7 +26,6 @@ export class AppComponent {
 
   onCopy(data: any) {
  
-    var text = 'Example text to appear on clipboard';
     navigator.clipboard.writeText(data).then(
       () => {
         console.log('Async: Copying to clipboard was successful!');

@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-save',
@@ -7,6 +8,7 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 })
 export class SaveComponent implements OnInit {
   panel = false;
+  fileUrl: any;
 
   @HostListener('document:click', ['$event'])
   clickout(event: Event) {
@@ -17,7 +19,7 @@ export class SaveComponent implements OnInit {
     }
   }
 
-  constructor(private eRef: ElementRef) { }
+  constructor(private eRef: ElementRef, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -27,10 +29,14 @@ export class SaveComponent implements OnInit {
   }
 
   onTxt() {
-      const data = "yes"
-      const blob = new Blob([data], { type: 'text/plain' });
-      const url= window.URL.createObjectURL(blob);
-      window.open(url, "_blank");
+      const content = document.querySelector('#write')?.innerHTML;
+      const blob = new Blob([<string>content], { type: 'application/octet-stream' });
+      this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob))
+  }
 
+  onPdf() {
+      const content = document.querySelector('#write')?.innerHTML;
+      const blob = new Blob([<string>content], { type: 'application/pdf' });
+      this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob))
   }
 }
