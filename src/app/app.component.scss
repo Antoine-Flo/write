@@ -1,7 +1,7 @@
 .write {
   width: 100%;
   min-height: 100vh;
-  padding: 5vh;
+  padding-top: 5vh;
 
   background-color: var(--gray-20);
 
@@ -13,7 +13,7 @@
     font-family: sans-serif;
     background-color: var(--gray-90);
     margin: 0 auto;
-    width: clamp(45px, 80%, 800px);
+    width: clamp(300px, 80%, 800px);
 
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
 

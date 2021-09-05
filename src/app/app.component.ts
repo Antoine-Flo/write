@@ -14,13 +14,16 @@ export class AppComponent {
   constructor(private window: Window) {}
 
   public selectionChange(): void {
+
+    
     const selection = this.window.getSelection();
     const selectionRange = this.window.getSelection()?.getRangeAt(0);
     const textSelected = selection?.toString();
-    const range = selectionRange?.cloneRange();
+    // const range = selectionRange?.cloneRange();
+
 
     if (textSelected) {
-      this.position = range;
+      this.position = selectionRange;
     }
   }
 
