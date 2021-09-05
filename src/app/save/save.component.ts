@@ -25,4 +25,12 @@ export class SaveComponent implements OnInit {
   onSave() {
     this.panel = true;
   }
+
+  onTxt() {
+      const data = "yes"
+      const blob = new Blob([data], { type: 'text/plain' });
+      const url= window.URL.createObjectURL(blob);
+      window.open(url, "_blank");
+
+  }
 }
