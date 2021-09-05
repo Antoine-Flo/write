@@ -14,18 +14,24 @@ export class AppComponent {
   constructor(private window: Window) {}
 
   public selectionChange(): void {
-
-    
     const selection = this.window.getSelection();
     const selectionRange = this.window.getSelection()?.getRangeAt(0);
     const textSelected = selection?.toString();
-    // const range = selectionRange?.cloneRange();
-
-
     if (textSelected) {
       this.position = selectionRange;
     }
   }
 
-
+  onCopy(data: any) {
+ 
+    var text = 'Example text to appear on clipboard';
+    navigator.clipboard.writeText(data).then(
+      () => {
+        console.log('Async: Copying to clipboard was successful!');
+      },
+      (err) => {
+        console.error('Async: Could not copy text: ', err);
+      }
+    );
+  }
 }

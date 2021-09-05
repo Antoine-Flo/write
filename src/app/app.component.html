@@ -1,9 +1,16 @@
+<app-save></app-save>
 <app-select-options [position]="position"></app-select-options>
-<!-- <app-save></app-save> -->
 
 <div class="write">
   
-  <div (click)="selectionChange()" class="write__text" contenteditable="true" autofocus="autofocus">
+  <div class="write__text-container">
+    <button (click)="onCopy(write.innerText)" class="write__copy">
+      <img class="write__copy-img" src="/assets/copy.png" alt="copy button">
+    </button>
+    <div #write (click)="selectionChange()" class="write__text" contenteditable="true" autofocus="autofocus">
+
+    </div>
   </div>
+
 
 </div>

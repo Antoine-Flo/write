@@ -39,7 +39,8 @@ export class SelectOptionsComponent implements OnInit {
   
   displayModal(position: {x: number, y: number}) {
     this.modalDisplayed = true;
-
+    console.log("trigger");
+    
     this.currentStyles = {
       'visibility': 'visible',
       'top': String(position.y - 40) + "px",

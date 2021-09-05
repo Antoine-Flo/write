@@ -1,11 +1,43 @@
+
+
 .write {
   width: 100%;
   min-height: 100vh;
   padding-top: 5vh;
-
   background-color: var(--gray-20);
+  // position: relative;
 
+  &__text-container {
+    width: clamp(300px, 80%, 800px);
+    margin: 0 auto;
+  }
+  
+  &__copy {
+    position: fixed;
+    left: 70px;
+    top: 20px;
+    
+    &-img {
+      transition: all .2s;
+      opacity: .2;
+      width: 28px;
+      
+      &:hover {
+        opacity: .6;
+        cursor: pointer;
+      }
+
+      &:active {
+        opacity: .4;
+      }
+    }
+    
+    
+
+  }
+  
   &__text {
+    width: clamp(300px, 80%, 800px);
     border-radius: 5px;
     min-height: 90vh;
     padding: 5rem;
@@ -13,7 +45,6 @@
     font-family: sans-serif;
     background-color: var(--gray-90);
     margin: 0 auto;
-    width: clamp(300px, 80%, 800px);
 
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
 
