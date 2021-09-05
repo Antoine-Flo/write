@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, Output,
-} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,36 +7,22 @@ import {
 })
 export class AppComponent {
   @Output() onSelection = new EventEmitter<any>();
-
-  title = 'write';
-
+  text: any;
   position: any;
-  // select: any;
-  // markerEvent: any;
-  // colorMarker = 'blue';
-  // selectionChangeTimer: any;
+  test: any;
 
-  constructor(
-    private window: Window,
-  ) {}
-
-
+  constructor(private window: Window) {}
 
   public selectionChange(): void {
-
-    
     const selection = this.window.getSelection();
     const selectionRange = this.window.getSelection()?.getRangeAt(0);
     const textSelected = selection?.toString();
     const range = selectionRange?.cloneRange();
 
-    if(textSelected) {
-      // console.log(selection);
-      // console.log(selectionRange);
-      // console.log(range?.getBoundingClientRect());
+    if (textSelected) {
       this.position = range;
-
     }
-    
   }
+
+
 }

@@ -14,7 +14,6 @@ export class SaveComponent implements OnInit {
       this.panel = true;
     } else {
       this.panel = false;
-      // this.text = "clicked outside";
     }
   }
 
@@ -24,7 +23,6 @@ export class SaveComponent implements OnInit {
   }
 
   onSave() {
-    console.log('save');
     this.panel = true;
   }
 }
