@@ -1,8 +1,9 @@
-<!-- <app-save></app-save> -->
+<app-select-options [position]="position"></app-select-options>
+<app-save></app-save>
 
 <div class="write">
   
-  <div  class="write__text" contenteditable="true" autofocus="autofocus">
+  <div (mouseup)="selectionChange()" class="write__text" contenteditable="true" autofocus="autofocus">
     
   </div>
 </div>
